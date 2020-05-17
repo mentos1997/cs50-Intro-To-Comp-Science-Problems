@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+    int height, space, step;
+    do {
+    height = get_int("Input height (1-8): ");
+    }while ((height <= 0) || (height > 8));
+        for(space = 0; space < height; ++space)
+    {
+        for(step = 0; step < height-1-space; ++step)
+            printf(" ");
+        for(step = 0; step < space + 1; ++step)
+            printf("#");
+                printf("\n");
+    }
+    return 0;
+}
