@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int main(void)
+{
+    int count = 0, cents; // keep track of how many coins required
+    float amount; // cost to be inputed
+    
+    do{
+        
+        amount = get_float("Change owed: ");
+    }
+    while (amount < 0);
+    
+    cents = round(amount * 100); //converting frm dollars to cents
+    
+    count += cents / 25;
+    cents %= 25;
+    
+    count += cents / 10;
+    cents %= 10;
+    
+    count += cents / 5;
+    cents %= 5;
+    
+    count += cents / 1;
+    cents %= 1;
+    
+    // printing out number of coins required
+    printf("%i\n", count);
+}
